@@ -1,0 +1,25 @@
+{
+  "name" : "Tim",
+  "street" : {
+    "string" : "Willow Lane"
+  },
+  "city" : {
+    "string" : "Bangkok"
+  }
+}
+{
+  "name" : "Tony",
+  "street" : null,
+  "city" : {
+    "string" : "Delhi"
+  }
+}
+{
+  "name" : "Tony",
+  "street" : {
+    "string" : "Forest Road"
+  },
+  "city" : {
+    "string" : "Sydney"
+  }
+}

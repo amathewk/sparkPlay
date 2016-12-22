@@ -1,0 +1,18 @@
+{
+  "name" : "Tony",
+  "favorite_number" : {
+    "int" : 8
+  },
+  "favorite_color" : {
+    "string" : "blue"
+  }
+}
+{
+  "name" : "Tim",
+  "favorite_number" : {
+    "int" : 4
+  },
+  "favorite_color" : {
+    "string" : "pink"
+  }
+}
