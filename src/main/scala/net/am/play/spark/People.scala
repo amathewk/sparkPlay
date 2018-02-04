@@ -60,7 +60,7 @@ object People {
   }
 
   def dummyUserAddresses(suffix:Int):Seq[Address] = {
-    Range(0,5).map(n => Address(s"name_${suffix}", s"street_${suffix}_$n", s"city_${suffix}_$n", s"zip_${suffix}_$n"))
+    (0 until 5).map(n => Address(s"name_${suffix}", s"street_${suffix}_$n", s"city_${suffix}_$n", s"zip_${suffix}_$n"))
   }
 }
 

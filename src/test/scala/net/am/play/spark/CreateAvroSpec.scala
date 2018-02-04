@@ -14,15 +14,6 @@ class CreateAvroSpec extends Specification {
 //   creates avro file                 $createAvroFile
 //                                 """
 
-  def createAvroFile = {
-    val f = File.createTempFile("ssfads","")
-    AvroUtil.create(f)
-    f.exists()
-    val content = Source.fromFile(f).mkString
-    content must have size(be_>=(0))
-
-  }
-
   def is = s2"""
    Creates user schema file    $userSchema
    Creates address schema file    $addressSchema
@@ -31,6 +22,7 @@ class CreateAvroSpec extends Specification {
       """
 
 //  def is = s2"""
+//  Creates users in avro file  $createAddressesAvro
 //    """
 
   def userSchema = {
@@ -53,6 +45,8 @@ class CreateAvroSpec extends Specification {
 
   def createUsersAvro = {
     val f = File.createTempFile("_sparkplay", "")
+//    val f = new File("users.avro")
+
     People.writeUsers(1000, f)
     import com.sksamuel.avro4s.AvroInputStream
 
@@ -64,12 +58,14 @@ class CreateAvroSpec extends Specification {
 
   def createAddressesAvro = {
     val f = File.createTempFile("_sparkplay", "")
+//    val f = new File("addresses.avro")
     People.writeAddresses(1000, f)
     import com.sksamuel.avro4s.AvroInputStream
 
     val is = AvroInputStream.data[Address](f)
     val addresses = is.iterator.toSet
     is.close()
+//    true
     addresses must have size(be_==(1000*5))
   }
 
