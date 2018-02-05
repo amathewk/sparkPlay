@@ -25,7 +25,7 @@ scalacOptions in Test ++= Seq("-Yrangepos")
 libraryDependencies += "com.holdenkarau" %% "spark-testing-base" % "2.2.0_0.8.0" % "test"
 libraryDependencies += "org.apache.spark" %% "spark-hive" % "2.2.0" % "test"
 
-
+libraryDependencies += "com.typesafe" % "config" % "1.3.1"
 
 fork in Test := true
 javaOptions ++= Seq("-Xms512M", "-Xmx2048M", "-XX:MaxPermSize=2048M", "-XX:+CMSClassUnloadingEnabled")

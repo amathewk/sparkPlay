@@ -1,6 +1,7 @@
 package net.am.play.spark
 
 import com.holdenkarau.spark.testing.{DataFrameSuiteBase, SharedSparkContext}
+import com.typesafe.config.ConfigFactory
 import org.apache.spark.sql.SaveMode._
 import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.scalatest.FunSuite
@@ -23,7 +24,21 @@ class SampleTest extends FunSuite {
     assert(rdd.count === list.length)
   }
 
+  test("prop override") {
+
+    System.setProperty("app.hiveBasePath", "target/hve")
+
+    val cfg = ConfigFactory.load
+
+    assertResult{"target/hve"}(cfg.getString("app.hiveBasePath"))
+  }
+
+
   test("df test") {
+//    System.setProperty("hiveBasePath", "/user/hive/warehouse")
+
+
+
     import spark.implicits._
     val ds = spark.createDataset(Seq(Car("Nissan", "Sentra"), Car("Infiniti", "G35")))
 
