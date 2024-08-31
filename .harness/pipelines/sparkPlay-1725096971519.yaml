@@ -1,0 +1,35 @@
+pipeline:
+  identifier: Build_amathewk_sparkPlay_1725096988337
+  name: Build sparkPlay
+  orgIdentifier: default
+  projectIdentifier: default_project
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github
+        repoName: amathewk/sparkPlay
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          caching:
+            enabled: true
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: MacOS
+          runtime:
+            spec: {}
+            type: Docker
+        type: CI
