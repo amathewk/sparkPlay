@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_amathewk_sparkPlay_1725096988337-pr-trigger-input-set
+  identifier: Build_amathewk_sparkPlay_1725096988337prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_amathewk_sparkPlay_1725096988337
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
